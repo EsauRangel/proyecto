@@ -60,12 +60,12 @@
 
             <h2>Doctor</h2>
             <form class="register-form" method="POST" action="registrodoct.php">
-                <input type="text" placeholder="nombre" id="nombre" name="nombre" />
-                <input type="text" placeholder="primer apellido" name="apellido1" />
-                <input type="text" placeholder="segundo apellido" name="apellido2" />
-                <input type="phone" placeholder="telefono" name="telefono" />
-                <input type="email" placeholder="email" name="correo" />
-                <input type="text" placeholder="sexo" name="sexo" />
+                <input type="text" placeholder="nombre" id="nombre" name="nombre" pattern="[a-zA-Z]{1-20}" />
+                <input type="text" placeholder="primer apellido" name="apellido1" pattern="[a-zA-Z]{1-20}" />
+                <input type="text" placeholder="segundo apellido" name="apellido2" pattern="[a-zA-Z]{1-20}" />
+                <input type="phone" placeholder="telefono" name="telefono" pattern="[a-zA-Z]{1-20}"/>
+                <input type="email" placeholder="email" name="correo" pattern="[a-zA-Z]{1-20}"/>
+                <input type="text" placeholder="sexo" name="sexo" pattern="[a-zA-Z]{1-20}" />
                 <select name="hospital" id="hospital">
                     <option value="">Hospital</option>
                     <?php
@@ -115,8 +115,8 @@
 
                 </select>
 
-                <input type="text" placeholder="usuario" name="usuario" />
-                <input type="password" placeholder="password" name="password" />
+                <input type="text" placeholder="usuario" name="usuario" pattern="[a-zA-Z]{1-20}"/>
+                <input type="password" placeholder="password" name="password" pattern="[a-zA-Z]{1-20}" />
 
 
                 <button name="enviardoctor" id="enviardoctor">Registrar</button>

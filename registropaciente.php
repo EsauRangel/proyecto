@@ -116,16 +116,16 @@
 
       <h2>Paciente</h2>
       <form class="register-form" method="POST" action="registropaciente.php">
-        <input type="text" placeholder="nombre" id="nombre" name="nombre" />
-        <input type="text" placeholder="primer apellido" name="apellido1" />
-        <input type="text" placeholder="segundo apellido" name="apellido2" />
-        <input type="phone" placeholder="telefono" name="telefono" />
-        <input type="email" placeholder="email" name="correo" />
-        <input type="text" placeholder="domicilio" name="domicilio" />
-        <input type="text" placeholder="ocupacion" name="ocupacion" />
-        <input type="text" placeholder="sexo" name="sexo" />
-        <input type="text" placeholder="usuario" name="usuario" />
-        <input type="password" placeholder="password" name="password" />
+        <input type="text" placeholder="nombre" id="nombre" name="nombre" pattern="[a-zA-Z]{1-20}"/>
+        <input type="text" placeholder="primer apellido" name="apellido1" pattern="[a-zA-Z]{1-20}"/>
+        <input type="text" placeholder="segundo apellido" name="apellido2" pattern="[a-zA-Z]{1-20}"/>
+        <input type="phone" placeholder="telefono" name="telefono" pattern="[0-9]{1-20}"/>
+        <input type="email" placeholder="email" name="correo" pattern="[a-zA-Z-0-9]{1-30}"/>
+        <input type="text" placeholder="domicilio" name="domicilio" pattern="[a-zA-Z]{1-20}"/>
+        <input type="text" placeholder="ocupacion" name="ocupacion" pattern="[a-zA-Z]{1-20}"/>
+        <input type="text" placeholder="sexo" name="sexo" pattern="[a-zA-Z]{1-20}"/>
+        <input type="text" placeholder="usuario" name="usuario" pattern="[a-zA-Z]{1-20}"/>
+        <input type="password" placeholder="password" name="password" pattern="[a-zA-Z]{1-20}"/>
         <button name="enviarpaciente" id="enviarpaciente">Registrar</button>
       </form>
     </div>
@@ -162,7 +162,7 @@ if (isset($_POST['enviarpaciente'])) {
                       $stid = oci_parse($conexion, $sql);
                       $result = oci_execute($stid);
                       if ($result) {
-                        echo "Se insertaron los datos";
+                        
                       }
                     } else {
                       echo "<script type='text/javascript'> alert('Rellene la contrasena del paciente...'); </script>";

@@ -109,8 +109,8 @@
     <div class="login-page">
         <div class="form">
             <form class="login-form" method="POST" action="login.php">
-                <input type="text" placeholder="usuario" name="usuario" />
-                <input type="password" placeholder="contraseña" name="password" />
+                <input type="text" placeholder="usuario" name="usuario" pattern="[1-9]{1-6}"/>
+                <input type="password" placeholder="contraseña" name="password" pattern="[a-zA-Z]{1-9}"/>
                 <button name="log">login</button>
             </form>
         </div>

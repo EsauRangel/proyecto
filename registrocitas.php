@@ -88,7 +88,7 @@
 
                 <input type="date" placeholder="Fecha" id="fecha" name="fecha" />
 
-                <input type="textarea" placeholder="Motivo" name="motivo" id="motivo">
+                <input type="textarea" placeholder="Motivo" name="motivo" id="motivo" pattern="[a-zA-Z]{1-50}">
                 <button name="enviarcita" id="enviarcita">Registrar Cita</button>
             </form>
         </div>
