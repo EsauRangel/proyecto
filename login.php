@@ -140,11 +140,12 @@ if (isset($_POST['log'])) {
 
 
             if ($row) {
-                $_SESSION['ID_USUARIO'] = $row['ID_USUARIO'];
+                $_SESSION['ID_DOCTOR'] = $row['ID_DOCTOR'];
                 $_SESSION['TIPO_USUARIO'] = $row['TIPO_USUARIO'];
                 if ($_SESSION['TIPO_USUARIO'] == 'doctor') {
                     header("location: indexdoc.php");
-                } else if ($_SESSION['TIPO_USUARIO'] == 'paciente') {
+                } else if ($_SESSION['TIPO_USUARIO'] == 'admin') {
+                    header("location: indexadm.php");
                 }
             } else {
                 $sql = "select id_paciente, tipo_usuario from pacientes where usuario = '$sha1_usuario' AND contrasena ='$sha1_password'";

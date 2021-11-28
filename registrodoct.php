@@ -8,9 +8,53 @@
     <title>Registrar doctor</title>
     <link rel="stylesheet" type="text/css" href="css/formularios.css">
     </link>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #A5F7F7;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(right, #A5F7F7, #A5F7F7);
+            background: -moz-linear-gradient(right, #A5F7F7, #A5F7F7);
+            background: -o-linear-gradient(right, #A5F7F7, #A5F7F7);
+            background: linear-gradient(to left, #A5F7F7, #A5F7F7);
+            font-family: "Roboto", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            text-decoration: none;
+            color: #FFFFFF;
+            position: relative;
+            top: 18px;
+            padding: 5px;
+
+        }
+
+        a:hover {
+            background-color: #4cc9f0;
+
+        }
+
+        header {
+            background-color: #009DAE;
+            height: 50px;
+
+        }
+    </style>
 </head>
 
 <body>
+<header>
+        <a href="indexadm.php">Inicio</a>
+        <a href="registropaciente.php">Registrar paciente</a>
+        <a href="salir.php">Salir</a>
+    </header>
+
     <div class="login-page">
         <div class="form">
 

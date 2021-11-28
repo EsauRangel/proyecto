@@ -9,6 +9,11 @@
   <style>
     @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
     .login-page {
       width: 900px;
       padding: 8% 0 0;
@@ -73,6 +78,26 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
+
+    a {
+      text-decoration: none;
+      color: #FFFFFF;
+      position: relative;
+      top: 18px;
+      padding: 5px;
+
+    }
+
+    a:hover {
+      background-color: #4cc9f0;
+
+    }
+
+    header {
+      background-color: #009DAE;
+      height: 50px;
+
+    }
   </style>
 
 
@@ -80,6 +105,12 @@
 </head>
 
 <body>
+  <header>
+    <a href="indexadm.php">Inicio</a>
+    <a href="registrodoct.php">Registrar doctor</a>
+    <a href="salir.php">Salir</a>
+  </header>
+
   <div class="login-page">
     <div class="form">
 
@@ -133,34 +164,34 @@ if (isset($_POST['enviarpaciente'])) {
                       if ($result) {
                         echo "Se insertaron los datos";
                       }
-                    }else{
+                    } else {
                       echo "<script type='text/javascript'> alert('Rellene la contrasena del paciente...'); </script>";
                     }
-                  }else{
+                  } else {
                     echo "<script type='text/javascript'> alert('Rellene el usuario del paciente...'); </script>";
                   }
-                }else{
+                } else {
                   echo "<script type='text/javascript'> alert('Rellene el sexo del paciente...'); </script>";
                 }
-              }else{
+              } else {
                 echo "<script type='text/javascript'> alert('Rellene la ocupacion del paciente...'); </script>";
               }
-            }else{
+            } else {
               echo "<script type='text/javascript'> alert('Rellene el domicilio del paciente...'); </script>";
             }
-          }else{
+          } else {
             echo "<script type='text/javascript'> alert('Rellene el correo del doctor...'); </script>";
           }
-        }else{
+        } else {
           echo "<script type='text/javascript'> alert('Rellene el telefono del paciente...'); </script>";
         }
-      }else{
+      } else {
         echo "<script type='text/javascript'> alert('Rellene el segundo apellido del paciente...'); </script>";
       }
-    }else{
+    } else {
       echo "<script type='text/javascript'> alert('Rellene el primer apellido del paciente...'); </script>";
     }
-  }else{
+  } else {
     echo "<script type='text/javascript'> alert('Rellene el nombre del paciente...'); </script>";
   }
 }
