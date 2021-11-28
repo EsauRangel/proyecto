@@ -7,10 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Citas</title>
     <link rel="stylesheet" type="text/css" href="css/formularios.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+            color: #FFFFFF;
+            position: relative;
+            top: 18px;
+            padding: 5px;
 
+        }
+
+        a:hover {
+            background-color: #4cc9f0;
+
+        }
+
+        header {
+            background-color: #009DAE;
+            height: 50px;
+           
+        }
+    </style>
 </head>
 
 <body>
+<header>
+        <a href="indexpac.php">Inicio</a>
+        <a href="consultarcitas.php">Ver mis citas</a>
+        <a href="salir.php">Salir</a>
+    </header>
 
 
     <div class="login-page">
@@ -23,8 +52,9 @@
                     <?php
 
                     include("conexion.php");
-
-                    $sql = "SELECT  * FROM PACIENTES";
+                    session_start();
+                    $id = $_SESSION['ID_PACIENTE'];
+                    $sql = "SELECT  * FROM PACIENTES WHERE ID_PACIENTE = $id";
                     $unir  = oci_parse($conexion, $sql);
                     oci_execute($unir);
                     while ($row = oci_fetch_array($unir, OCI_ASSOC)) {

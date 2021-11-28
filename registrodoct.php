@@ -108,12 +108,13 @@ if (isset($_POST['enviardoctor'])) {
                                         if ($usuario != "") {
                                             $contrasena  = sha1($_POST['password']);
                                             if ($contrasena != "") {
+                                                $tipo_usuario = "doctor";
 
-                                                $sql = "insert into doctores (nombre, apellido1, apellido2, telefono, correo, id_hospital, id_especialidad, id_turno, tipo_usuario, usuario, contrasena, id_asistente) values ('$nombre', '$apellido1', '$apellido2', '$telefono', '$correo', '$hospital', '$especialidad', '$turno', '$tipo_usuario', '$usuario', '$contrasena', '$asistente' )";
+                                                $sql = "insert into doctores (nombre, apellido1, apellido2, telefono, correo, id_hospital, id_especialidad, id_turno, tipo_usuario, usuario, contrasena) values ('$nombre', '$apellido1', '$apellido2', '$telefono', '$correo', '$hospital', '$especialidad', '$turno', '$tipo_usuario', '$usuario', '$contrasena' )";
                                                 $stid = oci_parse($conexion, $sql);
                                                 $result = oci_execute($stid);
                                                 if ($result) {
-                                                    echo "Se insertaron los datos";
+                                                    
                                                 }
                                             } else {
                                                 echo "<script type='text/javascript'> alert('Rellene la contrasena del doctor...'); </script>";

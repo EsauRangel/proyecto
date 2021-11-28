@@ -22,17 +22,7 @@ oci_execute($unir);
             margin: 0;
         }
 
-        body {
-            background: #A5F7F7;
-            /* fallback for old browsers */
-            background: -webkit-linear-gradient(right, #A5F7F7, #A5F7F7);
-            background: -moz-linear-gradient(right, #A5F7F7, #A5F7F7);
-            background: -o-linear-gradient(right, #A5F7F7, #A5F7F7);
-            background: linear-gradient(to left, #A5F7F7, #A5F7F7);
-            font-family: "Roboto", sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+
 
         a {
             text-decoration: none;
@@ -53,7 +43,48 @@ oci_execute($unir);
             height: 50px;
 
         }
+
+        table {
+            background-color: #bee1e6;
+            height: 200px;
+            width: 600px;
+            margin: auto;
+            text-align: center;
+            padding: 10px;
+            color: #14213d;
+        }
+
+        h2 {
+            height: 20px;
+            width: 200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        body {
+            background: #A5F7F7;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(right, #A5F7F7, #A5F7F7);
+            background: -moz-linear-gradient(right, #A5F7F7, #A5F7F7);
+            background: -o-linear-gradient(right, #A5F7F7, #A5F7F7);
+            background: linear-gradient(to left, #A5F7F7, #A5F7F7);
+            font-family: "Roboto", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        #cancelar{
+            background-color: #ff4d6d;
+            height: 80%;
+            width: 80%;
+            padding: 15px;
+        }
+
+        #cancelar:hover{
+            background-color: #c9184a;
+            cursor: pointer;
+        }
     </style>
+
 </head>
 
 <body>
@@ -62,8 +93,9 @@ oci_execute($unir);
         <a href="registrocitas.php">Agendar cita</a>
         <a href="salir.php">Salir</a>
     </header>
-    <h2>Mis citas</h2>
+
     <table border=1 style="border-collapse: collapse;">
+        <h2>Mis citas</h2>
         <tr>
             <th>Paciente</th>
             <th>Doctor</th>
@@ -76,9 +108,22 @@ oci_execute($unir);
                 <?php echo "<td>" . $row['ID_DOCTOR'] . "</td>"; ?>
                 <?php echo "<td>" . $row['RAZON'] . "</td>"; ?>
                 <?php echo  "<td>" . $row['FECHA'] . "</td>"; ?>
+                <td>
+                    <form action="consultarcitas.php" method="POST">
+                        <button id="cancelar" name="cancelar" value="<?php echo $row['ID_CITA']; ?>">Cancelar</button>
+                    </form>
+                </td>
             </tr>
 
-        <?php } ?>
+        <?php }
+        if (isset($_POST['cancelar'])) {
+            $cita = $_POST['cancelar'];
+            $elimina = "DELETE FROM CITAS WHERE ID_CITA = $cita";
+            $unir  = oci_parse($conexion, $elimina);
+            oci_execute($unir);
+            header('location: consultarcitas.php');
+        }
+        ?>
     </table>
 
 </body>
